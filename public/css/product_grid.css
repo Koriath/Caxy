@@ -1,0 +1,76 @@
+.productGrid {
+  display: grid;
+  width: 70vw;
+  grid-template-columns: repeat(auto-fill, 210px);
+  justify-content: space-between;
+  color: #FFFFFF;
+}
+
+.productCell {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  max-width: 200px;
+  flex-direction: row;
+  text-align: left;
+  align-items:center;
+  cursor: pointer;
+  margin: 5px auto;
+  border-radius: 10px;
+  background-color: #2D2D2D;
+}
+
+.productIcon {
+  display: flex;
+  flex: auto;
+  align-self: center;
+  width: 128px;
+  height: 128px;
+}
+
+.productInfo{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: auto;
+  margin: 0px 15px 0px 15px;
+}
+
+
+/* For Chrome*/
+meter::-webkit-meter-bar {background: #e6e6e9;} /*background color of bar*/
+meter::-webkit-meter-optimum-value {background: green;}
+meter::-webkit-meter-suboptimum-value{background:orange;}
+meter::-webkit-meter-even-less-good-value{background:red;}
+
+/* For Firefox*/
+meter::-moz-meter-bar {background: red;}  /* color of bar*/
+meter::-moz-meter-optimum-value {background: lightgreen;}
+meter::-moz-meter-suboptimum-value{background:gold;}
+
+.productmeter {
+  position: absolute;
+  margin-left: 100px;
+  width: 180px;
+  height: 10px;
+  border-radius: 2px;
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90*0deg);	 /*  for IE  */
+}
+
+.categorydisplay {
+  font-size: 10px;
+  color: #6B6B6B;
+}
+
+.productnamedisplay {
+  font-size: 16px;
+  color: #CCCCCC;
+}
+
+.productpricedisplay {
+  display: flex;
+  font-size: 12px;
+  color: #6B6B6B;
+  justify-content: flex-end;
+}

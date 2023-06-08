@@ -1,0 +1,4 @@
+.mainpanel{
+  display: flex;
+  flex-flow: row;
+}

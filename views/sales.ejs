@@ -1,0 +1,10 @@
+<%- include('header.ejs') %>
+<%- include('topmenu.ejs') %> <!-- Top Navigation Menu -->
+<!-- --------------------------------------------------------------- -->
+<div class="mainpanel"> <!-- Organized in 3 rows -->
+  <%- include('categorymenu.ejs', {categories: categories}) %>  <!-- Sales Display -->
+  <%- include('productgrid.ejs') %>                             <!-- Product Grid -->
+  <%- include('saledisplay.ejs', {sales: sales}) %>             <!-- Sales Display -->
+</div>
+<!-- --------------------------------------------------------------- -->
+<%- include('footer.ejs') %>

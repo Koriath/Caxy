@@ -1,0 +1,22 @@
+@font-face {
+    font-family: DreamAvenue;
+    src: url(/fonts/DreamAvenue.ttf);
+}
+
+.toppanel {
+  display: flex;
+  flex-flow: row;
+}
+
+.logoArea {
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+  align-items: center;
+  font-family: DreamAvenue;
+}
+
+.logoicon {
+  width: 100px;
+  height: 100px;
+}

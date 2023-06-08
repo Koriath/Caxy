@@ -1,0 +1,7 @@
+
+<div class="productGrid">
+    <% stock.forEach(function(dat) { %>
+      <!-- Instantiate a Product Cell for each Item -->
+      <%- include('product.ejs',{p: dat}) %>
+    <% }); %>
+</div>

@@ -1,0 +1,9 @@
+<div class= "categoryMenu">
+
+  <p class="categoryButton" style="background-color: #2D2D2D;">Todos<p>
+  <% categories.forEach(function(dat) { %>
+    <!-- Instantiate a Category Cell for each Item -->
+    <%- include('categoryselector.ejs',{categoryName: dat.name}) %>
+  <% }); %>
+
+</div>

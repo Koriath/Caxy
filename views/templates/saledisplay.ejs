@@ -1,0 +1,23 @@
+<div class="salesView">
+  <div id="salesdisplay" class="salesdisplay">
+    <div class="salesline"><div class="productnamedisplay">Arroz e Atum</div> <div class="categorydisplay">1x 0.56</div> </div>
+    <div class="salesline"><div class="productnamedisplay">Cerveja</div> <div class="categorydisplay">3x 1.67</div> </div>
+    <div class="salesline"><div class="productnamedisplay">Bolos</div> <div class="categorydisplay">2x 7.23</div> </div>
+    
+  </div>
+
+  <div class="totaldisplay">
+    <div class="totalprice"><p>Total:</p><p>123.54€</p></div>
+    <br>
+    <h3 class="saleButton"  onclick="executeSale()"> Venda</h3>
+  </div>
+
+
+</div>
+
+<script>
+  function executeSale() {
+   fetch('/executeSale', { body: null, method: "PUT"});
+   location.reload();
+  }
+</script>
