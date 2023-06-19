@@ -1,0 +1,24 @@
+
+.toppanel {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.logoArea {
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+  align-items: center;
+  font-family: DreamAvenue;
+}
+
+.logoicon {
+  width: 100px;
+  height: 100px;
+}
+
+.adminlinks{
+  display: flex;
+  align-self: flex-end;
+}

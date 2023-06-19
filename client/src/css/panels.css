@@ -1,0 +1,14 @@
+.mainpanel{
+  display: flex;
+  flex-flow: row;
+}
+
+.loginpanel{
+  display: none;
+  position: fixed;
+  background-color: #212325;
+  width: 40vw;
+  margin: 00vw 30vw 00vw 30vw;
+  z-index:2;
+
+}
