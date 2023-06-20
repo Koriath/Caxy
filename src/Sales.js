@@ -12,25 +12,39 @@ export default class Sales extends React.Component{
       totalPrice : 0
     };
     this.sellProduct = this.sellProduct.bind(this);
+    this.finalizeSale = this.finalizeSale.bind(this);
   }
 
   sellProduct(p){
     //const newList = this.props.saleList;
-    const newList = this.state.saleList;
-    if(newList.includes(p)){newList[newList.indexOf(p)].amount ++;}
-    else{p.amount = 1; newList.push(p);}
+    var newList = this.state.saleList;
+    var newProduct = {name: "product", price: "0.00"};
+    newProduct.name = p.name;
+    newProduct.price = p.price;
+    newProduct.amount = 1;
+    var newproduct = true;
+    newList.map((s) => {if(s.name === newProduct.name){s.amount ++;newproduct = false;}});
+    if(newproduct){newList.push(newProduct);}
     this.setState({totalPrice : this.state.totalPrice+p.price});
     this.setState({saleList : newList});
-    console.log("Pushing product: "+p.name);
+    console.log("Pushing product: "+newProduct.name);
+    console.log("New List: "+newList);
     console.log("New Sales: "+this.state.saleList);
   };
+
+  finalizeSale(){
+    this.state.saleList = [];
+    this.setState({totalPrice : 0});
+    this.setState({saleList : []});
+    console.log("Finalizing Sale. Total: "+this.state.totalPrice+"€.");
+  }
 
   render(){
     return (
       <div className ="mainpanel">
         <CategoryList categories = {this.props.categories}/>
         <ProductGrid products = {this.props.products} saleList = {this.state.saleList} sellHandler={this.sellProduct}/>
-        <SalesList saleList = {this.state.saleList} totalPrice={this.state.totalPrice}/>
+        <SalesList saleList = {this.state.saleList} totalPrice={this.state.totalPrice} finalizeSale = {this.finalizeSale}/>
       </div>
       );
   }
