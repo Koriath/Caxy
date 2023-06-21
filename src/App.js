@@ -36,7 +36,7 @@ function App() {
       return (
         <div className="App">
           <TopBanner />
-          <Sales categories = {categories} products = {products} />
+          <Sales categories = {categories} products = {products} setProducts = {setproducts} />
           <Footer />
         </div>
       );

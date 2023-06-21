@@ -27,16 +27,27 @@ export default class Sales extends React.Component{
     if(newproduct){newList.push(newProduct);}
     this.setState({totalPrice : this.state.totalPrice+p.price});
     this.setState({saleList : newList});
-    console.log("Pushing product: "+newProduct.name);
-    console.log("New List: "+newList);
     console.log("New Sales: "+this.state.saleList);
   };
 
   finalizeSale(){
-    this.state.saleList = [];
-    this.setState({totalPrice : 0});
-    this.setState({saleList : []});
     console.log("Finalizing Sale. Total: "+this.state.totalPrice+"€.");
+    var saledata = {list : this.state.saleList, total : this.state.totalPrice};
+
+    fetch('/sell', { method: 'POST', headers: { "Content-Type": "application/json" }, body: JSON.stringify(saledata)})
+    .then(data =>{
+      this.state.saleList = [];
+      this.setState({totalPrice : 0});
+      this.setState({saleList : []});
+      fetch('/stock', { method: 'GET'})
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.products);
+        this.props.setProducts(data.products);
+      });
+
+    });
+
   }
 
   render(){

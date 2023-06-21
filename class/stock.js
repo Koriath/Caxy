@@ -54,7 +54,27 @@ module.exports = class Stock {
    }
 
    // Remove Stock
-   removeStock(dbConn) {
+   removeStock(saleList,total,dbConn) {
+     console.log("Removing stock: ",saleList);
+     console.log("Test : ",saleList.length);
+     var products;
+     var sales;
+     dbConn.then(session => {
+       products = session.getSchema('stock').getTable('products');
+       for(let i = 0; i<saleList.length;i++){
+         console.log("Selling ",saleList[i].amount,"x",saleList[i].name);
+         products.update()
+         .set('amount',  mysqlx.expr("GREATEST(0,amount - "+saleList[i].amount+")"))
+         .where('name like :salename')
+         .bind('salename',saleList[i].name)
+         .execute();
+       }
+       sales = session.getSchema('stock').getTable('sales');
+       sales.insert('idsale','solditems', 'total')
+      .values(null, JSON.stringify(saleList), total)
+      .execute();
+     });
+
 
    }
 
