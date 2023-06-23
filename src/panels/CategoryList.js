@@ -7,8 +7,9 @@ class CategoryList extends React.Component{
   render(){
     return (
       <div className= "categoryMenu">
-        <CategoryButton />
-        {this.props.categories.map((c,i) => <CategoryButton category={c} key={i}/>)}
+        <CategoryButton selected = {this.props.currentCategory == 0} selectCategory={this.props.selectCategory}/>
+        {this.props.categories.map((c,i) =>
+          <CategoryButton selected = {this.props.currentCategory == c.id} selectCategory={this.props.selectCategory} category={c} key={i}/>)}
       </div>
     );
   }

@@ -9,10 +9,14 @@ export default class ProductGrid extends React.Component{
     }
 
   render(){
-
-    return (
+    var buttons = [];
+    this.props.products.map((p,i) => {
+      if(this.props.currentCategory == 0 || this.props.currentCategory == p.category)
+        {buttons.push(<ProductButton product={p} salesList={this.props.salesList} sellProduct={this.props.sellHandler} key={i}/>);}
+    });
+    return(
       <div className="productGrid">
-        {this.props.products.map((p,i) => <ProductButton product={p} salesList={this.props.salesList} sellProduct={this.props.sellHandler} key={i}/> ) }
+        {buttons}
       </div>
     );
   }

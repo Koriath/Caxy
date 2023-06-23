@@ -9,10 +9,12 @@ export default class Sales extends React.Component{
     super(props);
     this.state = {
       saleList: [],
-      totalPrice : 0
+      totalPrice : 0,
+      category : 0
     };
     this.sellProduct = this.sellProduct.bind(this);
     this.finalizeSale = this.finalizeSale.bind(this);
+    this.selectCategory = this.selectCategory.bind(this);
   }
 
   sellProduct(p){
@@ -50,11 +52,16 @@ export default class Sales extends React.Component{
 
   }
 
+  selectCategory(newCat){
+    console.log("New Category: ",newCat);
+    this.setState({category : newCat});
+  }
+
   render(){
     return (
       <div className ="mainpanel">
-        <CategoryList categories = {this.props.categories}/>
-        <ProductGrid products = {this.props.products} saleList = {this.state.saleList} sellHandler={this.sellProduct}/>
+        <CategoryList categories = {this.props.categories} currentCategory = {this.state.category} selectCategory={this.selectCategory}/>
+        <ProductGrid products = {this.props.products} currentCategory = {this.state.category} saleList = {this.state.saleList} sellHandler={this.sellProduct}/>
         <SalesList saleList = {this.state.saleList} totalPrice={this.state.totalPrice} finalizeSale = {this.finalizeSale}/>
       </div>
       );
